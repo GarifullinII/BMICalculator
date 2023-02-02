@@ -9,8 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //MARK: - IBOutlet
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var heightOutletSlider: UISlider!
+    @IBOutlet weak var weightOutletSlider: UISlider!
     
     
     override func viewDidLoad() {
@@ -18,11 +21,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    //MARK: - IBAction
     @IBAction func heightSlider(_ sender: UISlider) {
-        heightLabel.text = "\(String(format: "%.2f", sender.value)) m"
+        let height = String(format: "%.2f", sender.value)
+        heightLabel.text = "\(height)m"
     }
     @IBAction func weightSlider(_ sender: UISlider) {
-        weightLabel.text = "\(String(Int(sender.value))) Kg"
+        let weight = String(format: "%.0f", sender.value)
+        weightLabel.text = "\(weight)Kg"
+    }
+    @IBAction func calculateButton(_ sender: UIButton) {
+        let height = heightOutletSlider.value
+        let weight = weightOutletSlider.value
+        let bmi = weight / pow(height, 2)
+        print(bmi)
     }
 }
 
