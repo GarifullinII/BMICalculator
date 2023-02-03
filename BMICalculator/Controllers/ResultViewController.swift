@@ -23,6 +23,8 @@ class ResultViewController: UIViewController {
     
     //MARK: - IBAction
     @IBAction func recalculatePressed(_ sender: UIButton) {
+        
+        // go to back CalculateViewController
         self.dismiss(animated: true, completion: nil)
     }
 }
